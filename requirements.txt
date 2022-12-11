@@ -7,11 +7,4 @@ djangorestframework==3.14.0
 
 Pillow==9.0.1
 
-ujson @ file:///tmp/build/80754af9/ujson_1648025916270/work
-Unidecode @ file:///tmp/build/80754af9/unidecode_1614712377438/work
-urllib3 @ file:///opt/conda/conda-bld/urllib3_1650639997961/work
-w3lib @ file:///Users/ktietz/demo/mc3/conda-bld/w3lib_1629359764703/work
-webencodings==0.5.1
-WebOb==1.8.7
-websocket-client @ file:///tmp/build/80754af9/websocket-client_1614803975924/work
-Werkzeug @ file:///opt/conda/conda-bld/werkzeug_1645628268370/work
+
