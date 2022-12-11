@@ -1,0 +1,41 @@
+{% extends "user/layout.html" %}
+{% block body %}
+<nav class="navbar navbar-expand-lg navbar-light bg-primary text-white">
+    <a class="navbar-brand" href="#">Yoga center</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav text-white">
+            <li class="nav-item active">
+                <a class="nav-link text-white" href="{% url 'all'%}">All Bookings <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-white" href="{% url 'book'%}">Book new Class</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-white" href="{% url 'logout'%}">Logout</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<div class="flex-row align-content-center justify-content-center w-100 text-center ">
+<h1>Your Bookings</h1>
+{%for month in months%}
+<div style="text-align: center; margin: 0 auto;">
+<div class="card" style="width: 50rem; margin: 0 auto; margin-top: 5px;">
+    <div class="card-body">
+        <h5 class="card-title">{{month}}</h5>
+        <p class="card-text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ducimus, vel..</p>
+        <a href="#" class="btn btn-primary">Be fit</a>
+    </div>
+</div>
+</div>
+{% endfor %}
+<div style="margin-top:5px">
+<a href="{% url 'book'%}" class="btn btn-primary">Book a new Class</a>
+<a href="{% url 'logout'%}" class="btn btn- primary">Logout</a>
+</div>
+</div>
+{% endblock %}

@@ -1,0 +1,63 @@
+{% extends "user/layout.html" %}
+{% block body %}
+<div>
+    {% if message is not None %}
+    <script>
+        alert('{{ message }}');
+    </script>
+    {% endif %}
+    <nav class="navbar navbar-expand-lg navbar-light bg-primary text-white">
+        <a class="navbar-brand" href="#">Yoga center</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav text-white">
+                <li class="nav-item active">
+                    <a class="nav-link text-white" href="{% url 'all'%}">All Bookings <span
+                            class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="{% url 'book'%}">Book new Class</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="{% url 'logout'%}">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="contact-form-wrapper d-flex justify-content-center">
+        <form action="{% url 'book' %}" class="contact-form" method="post">
+            {% csrf_token %}
+            <h5 class="title">Book</h5>
+            </p>
+            <div>
+                Slot:
+                <select name="slot"class="form-control rounded border-white mb-3 form-input">
+                    <option value="6-7AM">6-7AM</option>
+                    <option value="7-8AM">7-8AM</option>
+                    <option value="8-9AM">8-9AM</option>
+                    <option value="5-6PM">5-6PM</option>
+                </select>
+            </div>
+            <div>
+                Month:
+                <select name="month" class="form-control rounded border-white mb-3 form-input">
+                    {%for month in months%}
+                    <option value="{{month}}" name="month">{{month}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div>
+                Amount: <p style="font-size: 15px;">Its 500 for each session</p>
+                <input type="number" class="form-control rounded border-white mb-3 form-text-area" placeholder="Amount"
+                    value="500" name="amount" disabled>
+            </div>
+            <div class="submit-button-wrapper">
+                <input type="submit" value="Pay">
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

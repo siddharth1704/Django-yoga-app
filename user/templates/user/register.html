@@ -1,0 +1,35 @@
+{% extends "user/layout.html" %}
+{% block body %}
+<div>
+   {% if message is not None %}
+   <script>
+      alert('{{ message }}');
+   </script>
+   {% endif %}
+
+   <div class="contact-form-wrapper d-flex justify-content-center">
+      <form action="{% url 'register' %}" class="contact-form" method="post">
+         {% csrf_token %}
+         <h5 class="title">Register</h5>
+         <p class="description">Register today and Get Fit.
+         </p>
+         <div>
+            <input type="text" class="form-control rounded border-white mb-3 form-input" id="name" placeholder="Name"
+               name="name" required>
+         </div>
+         <div>
+            <input type="email" class="form-control rounded border-white mb-3 form-input" placeholder="Email" name="email" required>
+         </div>
+         <div>
+            <input type="number" class="form-control rounded border-white mb-3 form-text-area" placeholder="Age" name="age" required>
+         </div>
+         <div class="submit-button-wrapper">
+            <input type="submit" value="Register">
+         </div>
+         <div style="text-align: center;">
+            <a href="{%url 'login'%}">Login</a>
+         </div>
+      </form>
+   </div>
+</div>
+{% endblock %}
