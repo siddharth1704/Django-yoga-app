@@ -23,7 +23,7 @@ def register(request):
             })
         request.session['username'] = user.email
         user.save()
-        return HttpResponseRedirect("all")
+        return HttpResponseRedirect(reverse('all'))
     return render(request, "user/register.html")
 
 
