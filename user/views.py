@@ -17,8 +17,7 @@ def register(request):
                 "message": "Age should be between 18-65"
             })
         user.email = request.POST.get("email")
-        checkuser = User.objects.get(email=user.email)
-        if checkuser is not None:
+        if User.objects.filter(email=user.email).exists():
             return render(request, "user/register.html", {
                 "message": "User already exists"
             })
